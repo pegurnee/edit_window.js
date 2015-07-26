@@ -3,9 +3,7 @@ function egEdit(elem) {
       editConfirm,
       editText;
 
-  if (document.getElementById('egEditWindow')) {
-    return;
-  }
+  elem.disabled = true;
 
   editWindow = document.createElement('div');
 
@@ -24,6 +22,8 @@ function egEdit(elem) {
   editConfirm.type = 'button';
   editConfirm.value = 'Finish Editing';
   editConfirm.onclick = function() {
+    elem.value = editText.value;
+    elem.disabled = false;
     alert(editText.value);
     document.body.removeChild(editWindow);
   }
@@ -36,8 +36,8 @@ function egEdit(elem) {
   editText.style.width = 'calc(100% - 25px)';
   editText.style.height = 'calc(100% - 45px)';
   editText.style.backgroundColor = 'green';
-
-  editText.contentEditable = true;
+  editText.style.fontSize = '18px';
+  editText.value = elem.value;
 
   editWindow.appendChild(editText);
 

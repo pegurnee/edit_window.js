@@ -3,8 +3,13 @@ function egEdit(elem) {
       editConfirm,
       editText;
 
+  if (document.getElementById('egEditWindow')) {
+    return;
+  }
+
   editWindow = document.createElement('div');
 
+  editWindow.id = 'egEditWindow';
   editWindow.style.position = 'fixed';
   editWindow.style.width = '600px';
   editWindow.style.height = '400px';

@@ -1,7 +1,7 @@
 function egEdit(elem, callbackFunction) {
   var editWindow,
-      editConfirm,
-      editText;
+    editConfirm,
+    editText;
 
   elem.disabled = true;
 
@@ -24,7 +24,9 @@ function egEdit(elem, callbackFunction) {
   editConfirm.onclick = function() {
     elem.value = editText.value;
     elem.disabled = false;
-    callbackFunction(editText.value);
+    if (callbackFunction) {
+      callbackFunction(editText.value);
+    }
     document.body.removeChild(editWindow);
   }
 

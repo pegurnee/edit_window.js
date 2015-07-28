@@ -1,9 +1,9 @@
 var EditWindow = (function() {
   "use strict";
 
-  function EditWindow(backgroundColor, foregroundColor) {
-    this.backgroundColor = backgroundColor ? backgroundColor : 'blue';
-    this.foregroundColor = foregroundColor ? foregroundColor : 'green';
+  function EditWindow(backColor, foreColor) {
+    this.backColor = backColor ? backColor : 'blue';
+    this.foreColor = foreColor ? foreColor : 'green';
   }
 
   EditWindow.prototype.edit = function(elem, functionToApply) {
@@ -20,7 +20,7 @@ var EditWindow = (function() {
     editWindow.style.height = '400px';
     editWindow.style.top = '100px';
     editWindow.style.left = 'calc(50% - 300px)';
-    editWindow.style.backgroundColor = this.backgroundColor;
+    editWindow.style.backgroundColor = this.backColor;
 
     editConfirm = document.createElement('input');
     editConfirm.style.position = 'absolute';
@@ -44,7 +44,7 @@ var EditWindow = (function() {
     editText.style.marginTop = '10px';
     editText.style.width = 'calc(100% - 25px)';
     editText.style.height = 'calc(100% - 45px)';
-    editText.style.backgroundColor = this.foregroundColor;
+    editText.style.backgroundColor = this.foreColor;
     editText.style.fontSize = '18px';
     editText.value = elem.value;
 
@@ -54,11 +54,11 @@ var EditWindow = (function() {
   }
 
   EditWindow.prototype.setBackground = function(color) {
-    this.backgroundColor = color;
+    this.backColor = color;
   }
 
   EditWindow.prototype.setForeground = function(color) {
-    this.foregroundColor = color;
+    this.foreColor = color;
   }
 
   return EditWindow;

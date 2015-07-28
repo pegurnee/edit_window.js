@@ -1,4 +1,6 @@
 var EditWindow = (function() {
+  "use strict";
+
   function EditWindow(backgroundColor, foregroundColor) {
     this.backgroundColor = backgroundColor ? backgroundColor : 'blue';
     this.foregroundColor = foregroundColor ? foregroundColor : 'green';
@@ -13,7 +15,6 @@ var EditWindow = (function() {
 
     editWindow = document.createElement('div');
 
-    editWindow.id = 'egEditWindow';
     editWindow.style.position = 'fixed';
     editWindow.style.width = '600px';
     editWindow.style.height = '400px';
@@ -50,6 +51,14 @@ var EditWindow = (function() {
     editWindow.appendChild(editText);
 
     document.body.appendChild(editWindow);
+  }
+
+  EditWindow.prototype.setBackground = function(color) {
+    this.backgroundColor = color;
+  }
+
+  EditWindow.prototype.setForeground = function(color) {
+    this.foregroundColor = color;
   }
 
   return EditWindow;
